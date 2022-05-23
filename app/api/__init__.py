@@ -7,6 +7,8 @@ from app.api.jurusan.update_jurusan import update_jurusan, UpdateJurusanResponse
 from app.api.jurusan.delete_jurusan import delete_jurusan
 from app.api.jurusan.detail_jurusan import detail_jurusan, DetailJurusanResponse
 
+from app.api.mahasiswa.get_mahasiswa import get_mahasiswa, GetMahasiswaResponse
+
 
 api_router = APIRouter()
 
@@ -23,19 +25,15 @@ async def shutdown():
 
 api_router.add_api_route('/v1/jurusan', get_jurusan,
                          methods=['GET'], tags=['Jurusan'], response_model=GetJurusanResponse)
-
-
 api_router.add_api_route('/v1/jurusan', insert_jurusan,
                          methods=['POST'], tags=['Jurusan'], response_model=InsertJurusanResponse, status_code=201)
-
-
 api_router.add_api_route('/v1/jurusan/{id}', update_jurusan,
                          methods=['PUT'], tags=['Jurusan'], response_model=UpdateJurusanResponse, status_code=201)
-
-
 api_router.add_api_route('/v1/jurusan/{id}', delete_jurusan,
                          methods=['DELETE'], tags=['Jurusan'], status_code=204)
-
-
 api_router.add_api_route('/v1/jurusan/{id}', detail_jurusan,
                          methods=['GET'], tags=['Jurusan'], response_model=DetailJurusanResponse)
+
+
+api_router.add_api_route('/v1/mahasiswa', get_mahasiswa,
+                         methods=['GET'], tags=['Mahasiswa'], response_model=GetMahasiswaResponse)
