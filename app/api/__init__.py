@@ -9,6 +9,7 @@ from app.api.jurusan.detail_jurusan import detail_jurusan, DetailJurusanResponse
 
 from app.api.mahasiswa.get_mahasiswa import get_mahasiswa, GetMahasiswaResponse
 from app.api.mahasiswa.insert_mahasiswa import insert_mahasiswa, InsertMahasiswaResponse
+from app.api.mahasiswa.update_mahasiswa import update_mahasiswa, UpdateMahasiswaResponse
 
 
 api_router = APIRouter()
@@ -40,3 +41,5 @@ api_router.add_api_route('/v1/mahasiswa', get_mahasiswa,
                          methods=['GET'], tags=['Mahasiswa'], response_model=GetMahasiswaResponse)
 api_router.add_api_route('/v1/mahasiswa', insert_mahasiswa,
                          methods=['POST'], tags=['Mahasiswa'], response_model=InsertMahasiswaResponse, status_code=201)
+api_router.add_api_route('/v1/mahasiswa/{id}', update_mahasiswa,
+                         methods=['PUT'], tags=['Mahasiswa'], response_model=UpdateMahasiswaResponse, status_code=201)
