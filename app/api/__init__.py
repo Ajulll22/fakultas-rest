@@ -5,6 +5,7 @@ from app.api.jurusan.get_jurusan import get_jurusan, GetJurusanResponse
 from app.api.jurusan.insert_jurusan import insert_jurusan, InsertJurusanResponse
 from app.api.jurusan.update_jurusan import update_jurusan, UpdateJurusanResponse
 from app.api.jurusan.delete_jurusan import delete_jurusan
+from app.api.jurusan.detail_jurusan import detail_jurusan, DetailJurusanResponse
 
 
 api_router = APIRouter()
@@ -34,3 +35,7 @@ api_router.add_api_route('/v1/jurusan/{id}', update_jurusan,
 
 api_router.add_api_route('/v1/jurusan/{id}', delete_jurusan,
                          methods=['DELETE'], tags=['Jurusan'], status_code=204)
+
+
+api_router.add_api_route('/v1/jurusan/{id}', detail_jurusan,
+                         methods=['GET'], tags=['Jurusan'], response_model=DetailJurusanResponse)
