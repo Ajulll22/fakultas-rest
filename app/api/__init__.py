@@ -13,6 +13,8 @@ from app.api.mahasiswa.update_mahasiswa import update_mahasiswa, UpdateMahasiswa
 from app.api.mahasiswa.delete_mahasiswa import delete_mahasiswa
 from app.api.mahasiswa.detail_mahasiswa import detail_mahasiswa, DetailMahasiswaResponse
 
+from app.api.dosen.insert_dosen import insert_dosen
+
 
 api_router = APIRouter()
 
@@ -49,3 +51,6 @@ api_router.add_api_route('/v1/mahasiswa/{id}', delete_mahasiswa,
                          methods=['DELETE'], tags=['Mahasiswa'], status_code=204)
 api_router.add_api_route('/v1/mahasiswa/{id}', detail_mahasiswa,
                          methods=['GET'], tags=['Mahasiswa'], response_model=DetailMahasiswaResponse)
+
+api_router.add_api_route('/v1/dosen', insert_dosen,
+                         methods=['POST'], tags=['Dosen'], status_code=201)
